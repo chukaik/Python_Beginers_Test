@@ -1,13 +1,14 @@
+import os
 import psycopg2
 
 # Function to connect to PostgreSQL
 def connect_db():
     return psycopg2.connect(
-        dbname="todolist_db",
-        user="postgres",
-        password="123456",
-        host="localhost",
-        port="5432"
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT")
     )
 
 # Function to add tasks
